@@ -3,6 +3,19 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Models don't belong in repos since they are generally big
+#   and easily downloaded from their sponsor/developer.
+# Skip the resources/unarchived folder - stuff that we may
+#   need for current code but don't need to save in repos
+# Skip the runs/ folder - it is meant to hold the output
+#   from a run of software and NOT meant to be held longterm.
+# Skip the env/ folder as this folder is for the virtual env
+#   and no need to save to repos the libs & tools being used
+resources/model/*
+resources/unarchived/*
+runs/
+env/
+
 # C extensions
 *.so
 
