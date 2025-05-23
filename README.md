@@ -1,9 +1,9 @@
 # cv-pi
 ## Code for learning about CV on Raspberry Pi
 
-The Raspberry Pi (RasPi) has its own cameras (Model 3 & AI) and software system (Picamera2) to manage the cameras. Picamera2 has software that is specialized to handle the details of their cameras. For example, the Image Sensor Processor (ISP) routinely splits the stream of data coming from the camera into two channels, main and lores (low resolution). Each channel can be independently configured EXCEPT that they must use the same color scheme.
+The Raspberry Pi (RasPi) has its own cameras (Model 3 & AI) and software system (Picamera2) to manage the cameras. Picamera2 has software that is specialized to handle the details of their cameras. For example, the Image Sensor Processor (ISP) normally splits the stream of data coming from the camera into two channels, main and lores (low resolution). Each channel can be independently configured EXCEPT that they must use the same color schema.
 
-When pursuing low-end/low-cost edge devices that will do object detection and pose estimation, RasPi has significant capabilities but they may be unique. The RasPi can load and use OpenCV as well as Yolo/Ultralytics and TensorFlowLite.
+When pursuing low-end/low-cost edge devices that will do object detection and pose estimation, RasPi has significant capabilities but they may be unique. In addition to the Picamera2 library, the RasPi can load and use OpenCV as well as Yolo/Ultralytics and TensorFlowLite.
 
 Be sure to find the doc, The Picamera2 Library PDF. It contains all sorts of detailed features that the camera can perform, such as transforms and colour_space, etc. Note that the word "transform" is a keyword, with its usage like `transform=Transform(hflip=True)`. Most of the apps in this repos are derived from that doc.
 
