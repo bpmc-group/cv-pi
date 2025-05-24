@@ -14,10 +14,10 @@ thickness = 2
 
 normalSize = (1920, 1080)
 #normalSize = (640, 480)
-lowresSize = (400, 300)
+lowresSize = (320, 240)
 
 def apply_timestamp(request):
-    timestamp = time.strftime("%Y-%m-%d %X")
+    timestamp = time.strftime("%Y-%m-%d %X  ") + "Resolution = " + 'X'.join(str(x) for x in normalSize)
     with MappedArray(request, "main") as m:
         cv2.putText(m.array, timestamp, origin, font, scale, font_colour, thickness)
 

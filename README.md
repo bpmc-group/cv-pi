@@ -16,6 +16,9 @@ Be sure to find the doc, The Picamera2 Library PDF. It contains all sorts of det
 * `pip install matplotlib`
 * `pip install tflite-runtime` (installed TensorFlow Lite)
 
+**PROBLEM!!** If I run inside a virtual env, the Qt5 features used in FAIL - the files are there but the plugins can't be
+started and it fails with a xcb failure. Qt is an X-window tool and RasPi OS **Bookworm** (uses Wayland instead of X)
+
 ## Goals
 
 * Explore the Picamera2 software without using models from other projects as much as possible
@@ -32,3 +35,7 @@ Be sure to find the doc, The Picamera2 Library PDF. It contains all sorts of det
 * test_pre_callback.py inserts the timestamp onto each image frame before any other processing is done. The original program was modified to experiment with different features, such as image size and preveiw image size and location of the window. It would fail to run with error messages about not being able to initialze Qt plugin xcb. Turned out it needed QT_PLUGIN_PATH to be set to /lib/aarch64-linux-gnu/qt/plugins/platforms. It also turns out that OpenCV is normally compiled with Qt support which is a classic tool to help write X-window interactions - latest Raspberry Pi OS (bookworm) ships with wayland that supercedes X-windows so Qt isn't needed unless your app (opencv) needs it. If you do need it, the appropriate Qt5 libs are already there, waiting to be pointed to and accessed
 
 * Packages installed with Ultralytics:Successfully installed contourpy-1.3.2 cycler-0.12.1 filelock-3.18.0 fonttools-4.58.0 fsspec-2025.5.0 kiwisolver-1.4.8 matplotlib-3.10.3 mpmath-1.3.0 networkx-3.4.2 opencv-python-4.11.0.86 packaging-25.0 pandas-2.2.3 py-cpuinfo-9.0.0 python-dateutil-2.9.0.post0 pyyaml-6.0.2 scipy-1.15.3 sympy-1.14.0 torch-2.7.0 torchvision-0.22.0 typing-extensions-4.13.2 tzdata-2025.2 ultralytics-8.3.142 ultralytics-thop-2.0.14
+
+## PyQt5 Notes
+Verify it is available with
+`python -c "import PyQt5; print('PyQt5 available')"`
