@@ -16,8 +16,16 @@ Be sure to find the doc, The Picamera2 Library PDF. It contains all sorts of det
 * `pip install matplotlib`
 * `pip install tflite-runtime` (installed TensorFlow Lite)
 
-**PROBLEM!!** If I run inside a virtual env, the Qt5 features used in FAIL - the files are there but the plugins can't be
-started and it fails with a xcb failure. Qt is an X-window tool and RasPi OS **Bookworm** (uses Wayland instead of X)
+**PROBLEM!!** If I run inside a virtual env, the Qt5 features used in FAIL - the files are there but the plugins can't be started and it fails with a xcb failure. Qt is an X-window tool and RasPi OS **Bookworm** (uses Wayland instead of X)
+
+**PROBLEM UPDATE** The Qt5 features now seem to be working inside the virtual env by following these steps:
+1. Open terminal window
+1. Enter the one line "program" at the bottom of this file. It tells python to import PyQt5 and then prints that it is available. If PyQt5 isn't available, it will blow up with an error.
+1. Create a new virtual env with the --system-site-packages included
+1. Activate the new virt env and issue the same one line "program" as before. Now it works
+
+If this didn't fix it, then it might be the other libs that were apt installed per the website:qengineering.eu/install opencv on reaspberry pi 5.html (probably has the spaces changed to %20s). DO NOT start at the top!!!! Skip down to the Dependencies section and sudo install build-essential and libv4l-dev v4l-utils and libopenblas-dev, etc and any others that look like they might be useful. Look at the "install the dependencies" section in the resources/OpenCV-4-11-0.sh file if you want to install ALL of the dependencies. Any dups of existing libs will be skipped.
+
 
 ## Goals
 
